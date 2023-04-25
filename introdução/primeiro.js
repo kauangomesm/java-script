@@ -1,1 +1,2 @@
-console.log('Deixa de ser besta');
+
+let idade = 17
