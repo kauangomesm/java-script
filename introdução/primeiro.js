@@ -1,0 +1,1 @@
+console.log('Deixa de ser besta');
