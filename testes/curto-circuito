@@ -1,0 +1,3 @@
+let amem = false
+
+console.log(amem && "carne")
