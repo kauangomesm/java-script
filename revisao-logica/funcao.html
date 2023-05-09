@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Funcões</h1>
+<br>
+
+    <script>
+        // função padão
+        function ola1(){
+            document.write("essa e a função padrão: ola1 <br>")
+        }
+        ola1()
+        // expressao de função
+        const ola2 = function(){
+            document.write("essa e a expressão de função : ola2 <br>")
+        }
+        ola2()
+        // arrow de função
+        const ola3 = () =>{
+            document.write("essa e a arrow funtion : ola3 <br>")
+        }
+        ola3()
+
+
+
+
+        function diaDaSemana(){
+            return new Date().getSeconds()
+        }
+        let data = diaDaSemana()
+        document.write(data)
+    </script>
+</body>
+</html>

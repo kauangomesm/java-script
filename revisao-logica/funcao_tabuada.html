@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Funcões - tabuada</h1>
+    <button onclick="tabuada()">Ver tabuada</button>
+    <button onclick="limpar()"> Limpar tabuada</button>
+    <div id="saida">
+
+    </div>
+
+
+
+    <script>
+        const saida = document.getElementById("saida")
+        function tabuada(){
+            let tab = ""
+            let n1 = parseFloat(prompt("digite o numero da sua tabuada"))
+
+
+            for (j = 0; j <=1000; j++)
+                tab += `${n1} x ${j} = ${j*n1} <br>`
+
+            saida.innerHTML = (tab)
+        }
+        const limpa = document.getElementById("saida")
+        function limpar(){
+            saida.innerHTML = ""
+        }
+        
+    </script>
+</body>
+</html>

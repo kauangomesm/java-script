@@ -11,23 +11,15 @@
 
     <script>
         let n = prompt("Escolha um numero")
-        for(j = 0; j <= 10; j++)
-        if (j === 5)
-                break 
-            document.write(`${j} x ${n} = ${j*n} <br>`)
+        let vezes = prompt("ate que numero quer essa taboada?")
+        let count = 0
+        while(true)
+        if(count === vezes)
+            break
+            count++
+            document.write(`${count} x ${n} = ${count*n} <br>`)
             
         document.write("fim da tabuada")
     </script>
 </body>
 </html>
-
-
-let numero = 4
-let indice = 0
-while( indice <=9){
-    if(indice === 5){
-        continue
-    }
-     console.log(`${numero} X ${indice}= ${(numero * indice)}`)
-     indice++
-}
