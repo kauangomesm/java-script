@@ -4,28 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>teste de função</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1>Tabuada</h1>
-    <p>Escolha uma das opçoes:</p>
-    <button id="iniciar" onclick="tabuada()">Iniciar</button>
-    <button id="resetar" onclick="limpaTabuada()">Resetar</button>
-    <div id="resultado"></div>
-
+    <main>
+      <h1>Tabuada</h1>
+      <div id="botoes">
+        <button class="botao" id="calc" onclick="calcular()">calcular</button>
+        <button class="botao" id="clear" onclick="limpar()">limpar</button>
+      </div>
+      <div id="resultado"></div>
+    </main>
     <script>
       const result = document.getElementById("resultado");
-      function tabuada() {
-        let soma = "";
-        let promp = parseInt(prompt("Qual tabuada deseja?"));
-        for (c = 1; c <= 10; c++) {
-          soma += ` ${promp} x ${c} = ${promp * c} <br> `;
+      function calcular() {
+        let resultado = "";
+        let numero1 = parseFloat(prompt("Escolha um numero"));
+        let numero2 = parseFloat(
+          prompt("Escolha ate que numero quer a tabuada")
+        );
+        for (c = 0; c <= numero2; c++) {
+          resultado += `${numero1} x ${c} = ${numero1 * c}<br> `;
         }
-        result.innerHTML = soma;
+        result.innerHTML = resultado;
       }
-      
-      function limpaTabuada() {
+      function limpar() {
         result.innerHTML = "";
       }
     </script>
