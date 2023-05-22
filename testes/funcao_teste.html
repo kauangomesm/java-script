@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>teste de função</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Tabuada</h1>
+    <p>Escolha uma das opçoes:</p>
+    <button id="iniciar" onclick="tabuada()">Iniciar</button>
+    <button id="resetar" onclick="limpaTabuada()">Resetar</button>
+    <div id="resultado"></div>
+
+    <script>
+      const result = document.getElementById("resultado");
+      function tabuada() {
+        let soma = "";
+        let promp = parseInt(prompt("Qual tabuada deseja?"));
+        for (c = 1; c <= 10; c++) {
+          soma += ` ${promp} x ${c} = ${promp * c} <br> `;
+        }
+        result.innerHTML = soma;
+      }
+      
+      function limpaTabuada() {
+        result.innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
