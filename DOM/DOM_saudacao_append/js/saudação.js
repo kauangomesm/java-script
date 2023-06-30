@@ -1,12 +1,10 @@
 (function(){
-    const nome = ""
-    const titulo = document.querySelector(".top-bar p")
-    if(nome){
-        titulo.innerHTML += ` <b>${nome}<b>`
-    }
-    else{
-        // titulo.parentElement.style.display = "none"
-        const removerItem = titulo.parentElement
-        removerItem.parentElement.removeChild(removerItem)
+    const nome = "kauan"
+    if (nome){
+        const elemento = document.createElement("div")
+        elemento.className = "top-bar"
+        elemento.innerHTML = `<p>Bem-vindo, <b>${nome}</b></p>`
+        const elementoPai = document.querySelector(".hero")
+        elementoPai.insertBefore(elemento, elementoPai.firstElementChild)
     }
 })()
