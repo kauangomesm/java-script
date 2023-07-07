@@ -1,4 +1,4 @@
-// indexOf(), lastIndexOf(), includes(), find(), findIndex()
+// Metodos -- indexOf(), lastIndexOf(), includes(), find(), findIndex()
 
 
 let arr = [4, 5, 1, 7, 5, 9, 5]

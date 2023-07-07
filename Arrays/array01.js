@@ -1,4 +1,4 @@
-// Metodos - every() -- some() -- forEach() -- filter -- map()
+// Metodos - every() -- some() -- forEach(function) -- filter(function) -- map(funtion)
 
 
 let aray = [5, 4, 'carne', false]
