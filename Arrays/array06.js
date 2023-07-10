@@ -9,11 +9,13 @@
 
 const numeros = [1, 3, 4, 1, 4, 5, 3, 5, 8, 9]
 
-
-let numerosUnicos = numeros.reduce( function(numero, numeroAtual) {
-    if(numero.includes(numeroAtual)){
-        numero.push(numeroAtual)
+let numerosUnicos = numeros.reduce( function(inicial, atual) {
+     if(!inicial.includes(atual)){
+         inicial.push(atual)
     }
-    return numero
+    return inicial
 }, [])
+
 console.log(numerosUnicos)
+
+
