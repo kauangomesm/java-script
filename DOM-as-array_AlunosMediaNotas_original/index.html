@@ -137,6 +137,8 @@
       <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
       <script src="js/calc.js"></script>
       <script>
+        
+
         (function(){  
             const trs = document.querySelectorAll("tbody tr")
             let x = 0
@@ -145,13 +147,13 @@
             while (trs[x]){
                 const tds = trs[x].querySelectorAll("td")
                 media = avarage(
-                  parseFloat(tds[1].textContet),
-                  parseFloat(tds[2].textContet),
-                  parseFloat(tds[3].textContet),
-                  parseFloat(tds[4].textContet)
+                  parseFloat(tds[1].textContent),
+                  parseFloat(tds[2].textContent),
+                  parseFloat(tds[3].textContent),
+                  parseFloat(tds[4].textContent)
                 )
                 x++
-                tds[5].textContet = media
+                tds[5].textContent = media
             }
             
         })()
