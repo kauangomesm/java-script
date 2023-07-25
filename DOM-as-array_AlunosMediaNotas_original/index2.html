@@ -150,22 +150,30 @@
     <script src="js/calc.js"></script>
     <script>
       ;(function () {
+
+
+
+
+
         const trHeader = document.querySelector("thead tr")
         const thHeader = trHeader.querySelectorAll("th")
+
+        const notas = {}
+        const thalunos = trHeader.querySelectorAll("[aluno-nota]")
+
+
+        Array.from(thalunos).forEach(function(th) {
+            let propriedade = th.getAttribute("aluno-nota")
+            notas[propriedade] = pegarindice(propriedade)
+        })
+        console.log(notas)
+
+
         function pegarindice(indice){
           const th = trHeader.querySelector(`[aluno-nota='${indice}']`) 
           const _indice = Array.from(thHeader).indexOf(th)
           return _indice
         }
-
-
-        const notas = {
-          n1: pegarindice("n1"),
-          n2: pegarindice("n2"),
-          n3: pegarindice("n3"),
-          n4: pegarindice("n4"),
-          media: pegarindice("media"),
-        };
         const trs = document.querySelectorAll("tbody tr");
         let x = 0;
         let media = 0;
