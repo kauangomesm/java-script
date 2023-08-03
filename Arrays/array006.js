@@ -9,8 +9,15 @@
     splice() -- reverse() -- reduce()
 */
 
-let aray1 = [1, 2, 3, 4, 5]
-let aray2 = ['a', 'b', 'c', 'd', 'e']
+
+let msg = 'R$250.00  x 12 R41000.00'
+console.log(parseInt((Array.from(msg.slice(msg.indexOf('x')+2))).reverse().slice((Array.from(msg.slice(msg.indexOf('x')+2))).reverse().indexOf('R')+2).reverse().join('')))
+
+
+
+
+
+
 
 
 
