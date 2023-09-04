@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const titulo = document.createElement("h1")
+        const atubuto = document.createAttribute("tempo")
+        atubuto.value = 'presente'
+        titulo.setAttributeNode(atubuto)
+        const texto = document.createTextNode('Olá Mundo')
+        titulo.appendChild(texto)
+        titulo.setAttribute('style', 'background-color: red;')
+        console.log(titulo)
+        // document.body.prepend(titulo)
+        const body = document.body
+        body.insertBefore(titulo, bodyf)
+
+
+
+
+    </script>
+</body>
+</html>
