@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Eventos</h1>
+    <div id="container">
+        <button id="btn1">botao 1</button>
+        <button id="btn2">botao 2</button>
+        <button id="btn3">botao 3</button>
+    </div>
+
+
+    <h1>Delegação de eventos</h1>
+    <div class="container2">
+        <button>botao 1</button>
+        <button>botao 2</button>
+        <button>botao 3</button>
+    </div>
+
+
+    <script>
+        const btn1 = document.getElementById('btn1')
+        const btn2 = document.getElementById('btn2')
+        const btn3 = document.getElementById('btn3')
+        const body = document.body
+
+        btn2.addEventListener('click', clicou)
+        btn1.addEventListener('click', function () {
+            body.style.backgroundColor = 'white'
+        })
+        function clicou() {
+            body.style.backgroundColor = '#1999'
+        }
+    </script>
+
+
+    <script>
+        const container2 = document.querySelector('.container2')
+        const botaos = document.querySelectorAll('.container button')
+        
+        container2.addEventListener('click', function (e){
+            // e.stopPropagation()
+            
+
+            if (e.target.nodeName === "BUTTON"){
+                console.log(e.target)
+            }
+            
+        })
+    </script>
+</body>
+</html>
