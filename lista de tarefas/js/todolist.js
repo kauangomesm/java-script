@@ -84,6 +84,15 @@
         })
     }
 
+
+    function clickedUl(e){
+        if(!e.target.getAttribute('data-action')){
+            return
+        }
+        console.log(e.target)
+        console.log(e.target.getAttribute('data-action'))
+    }
+
     botaoAdicionar.addEventListener('submit', (e) => {
 
         e.preventDefault()
@@ -97,6 +106,10 @@
 
         
     })
+
+    listaDeTarefas.addEventListener("click", clickedUl)
+
+
     renderTask()
 
 
