@@ -1,8 +1,8 @@
 // Metodos -- indexOf(), lastIndexOf(), includes(), find(), findIndex()
 
 
-let arr = [4, 5, 1, 7, 5, 9, 5]
-n = 50
+let arr = [4, 5, 1, 7, '.', 5, 9, 5]
+n = '.'
 console.log('indexof() ',arr.indexOf(n)) // retorna o indice do primeiro numero encontrado
 
 console.log('lastindexof() ', arr.lastIndexOf(n)) // retorna o indice do ultimo numero encontrado

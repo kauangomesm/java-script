@@ -32,3 +32,6 @@ console.log('------------------------------------')
 
 arr.splice(5)
 console.log(arr)
+
+
+arr.slice()
