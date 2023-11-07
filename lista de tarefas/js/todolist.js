@@ -1,18 +1,36 @@
-;(function (){
-
+;(function () {
+ "use strict"
     const botaoAdicionar = document.querySelector('#todo-add')
     const nomeAdicionar = document.querySelector('#item-input')
     const listaDeTarefas = document.querySelector('#todo-list')
+    const lis = listaDeTarefas.getElementsByTagName('li')
 
-    let arrTask = [
-        {
-            name: 'task 1',
-            createAt: Date.now(),
-            completed: false
-        }
-    ]
+    let arrTask = getSavedData()
+        
+    function getSavedData() {
 
-  
+        let tasksData = localStorage.getItem('tasks')
+        tasksData = JSON.parse(tasksData)
+        console.log(tasksData)
+
+
+        return tasksData && tasksData.length ? tasksData : [
+                {
+                    name: 'task 1',
+                    createAt: Date.now(),
+                    completed: true
+                }
+            ]
+        
+        
+        
+    }
+
+    function setNewData() {
+        localStorage.setItem('tasks', JSON.stringify(arrTask))
+    }
+    setNewData()
+
 
     function createli(obj){
         const li = document.createElement('li')
@@ -31,7 +49,11 @@
 
         checkbutton.className = "button-check"
         checkbutton.setAttribute("data-action", 'checkbutton')
-        icheck.className = "fas fa-check displayNone"
+
+        icheck.className = `fas fa-check ${obj.completed ? '' : 'displayNone'}`
+
+        icheck.setAttribute("data-action", "checkbutton")
+
         checkbutton.appendChild(icheck)
         li.appendChild(checkbutton)
 
@@ -47,6 +69,7 @@
 
         editInput.className = "editInput"
         editInput.setAttribute("type", "text")
+        editInput.value = obj.name
         editContainer.appendChild(editInput)
 
         d_editbutton.className = "editButton"
@@ -75,6 +98,7 @@
             createAt: Date.now(),
             completed: false
         })
+        setNewData()
     }
     
     function renderTask(){
@@ -86,12 +110,67 @@
 
 
     function clickedUl(e){
+        const dataAction = e.target.getAttribute(`data-action`)
         if(!e.target.getAttribute('data-action')){
             return
         }
+        let currentLi  = e.target
+        while(currentLi.nodeName !== 'LI'){
+            currentLi = currentLi.parentElement
+        }
+
+        const currentLiindex = [...lis].indexOf(currentLi)
+        console.log(currentLiindex)
         console.log(e.target)
-        console.log(e.target.getAttribute('data-action'))
+
+        const actions = {
+            editbutton: function() {
+                    const editContainer =currentLi.querySelector('.editContainer');
+
+                    [...listaDeTarefas.querySelectorAll('.editContainer')].forEach(container => {
+                        container.removeAttribute('style')
+                    })
+
+                    editContainer.style.display = 'flex'
+            },
+
+            deletebutton: function(){
+                arrTask.splice(currentLiindex, 1)
+                renderTask()
+                setNewData()
+                
+            },
+
+            d_editbutton: function(){
+                const val = currentLi.querySelector('.editInput').value
+                
+                arrTask[currentLiindex].name = val
+                renderTask()
+                setNewData()
+            },
+
+            d_cancelbutton: function(){
+                currentLi.querySelector('.editContainer').removeAttribute('style')
+                currentLi.querySelector('d_editbutton').value = arrTask[currentLiindex].name
+            },
+
+            checkbutton: function(){
+                arrTask[currentLiindex].completed = !arrTask[currentLiindex].completed
+                setNewData()
+                renderTask()
+            }
+        }
+
+        if (actions[dataAction]){
+            actions[dataAction]()
+        }
+
+
+
+
     }
+
+
 
     botaoAdicionar.addEventListener('submit', (e) => {
 
